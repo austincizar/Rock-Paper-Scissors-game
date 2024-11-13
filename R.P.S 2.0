@@ -1,0 +1,73 @@
+import random
+
+name = input("Enter your name: ")
+print ("Good Luck ", name)
+
+options = ['Rock', 'Paper', 'scissors']
+pc = random.choice(options)
+
+# print instructions 
+print ("Game Instructions: \n rock beats scissors \n paper beats rock \n scissors beats paper.")
+
+
+  
+    
+ 
+
+def game():
+    retry = "y"
+    i = 0
+    while retry == "y":
+        if i != 0:
+            retry = input ("Would you like to play again? y/n  ")
+            if retry == "y":
+                print ("Okay")
+                i += 1
+            elif retry == "n":
+                print ("Bye")
+                i += 1
+                break
+            else:
+                print ("Wrong input, the game end's here.")
+                i += 1
+                break
+        i += 1  
+        pc = random.choice(options)    
+        user_option = input("input: \n r for rock: \n p for paper: \n s for scissors: \n x to exit the game: \n ")
+        if user_option == "r":
+            user_option = "Rock"
+        if user_option == "p":
+            user_option = "Paper"
+        if user_option == "s":
+            user_option = "scissors"
+            
+        if user_option == pc:
+            print ("PC selected ", pc, "\n It's a Tie!")
+            print ("Try again.")
+            game()
+        elif user_option == "Rock" and pc == "Paper":
+            print("PC selected: ", pc)
+            print ("Paper beats Rock! PC wins!") 
+        elif user_option == "Rock" and pc == "scissors":
+            print("PC selected: ", pc)
+            print ("Rock beats scissors! You win!") 
+        
+        elif user_option == "Paper" and pc == "Rock":
+            print("PC selected: ", pc)
+            print ("Paper beats Rock! You win!")   
+        elif user_option == "Paper" and pc == "scissors":
+            print("PC selected: ", pc)
+            print ("scissors beats Paper! PC wins!")   
+        elif user_option == "scissors" and pc == "Paper":
+            print("PC selected: ", pc)
+            print ("scissors beats Paper! you win!")  
+        elif user_option == "scissors" and pc == "Rock":
+            print("PC selected: ", pc)
+            print ("Rock beats scissors! PC wins!")  
+        elif user_option == "x":
+            print("You've exited the game.")
+            break
+        else:
+            print("Wrong input, Try again!")
+            game()
+game()
